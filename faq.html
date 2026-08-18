@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FAQ — Kriva Tech</title>
+<meta name="description" content="Answers to the questions clients ask Kriva Technologies: what we do, where we work, how projects start, pricing, timelines, data security, dedicated engineers and GCC setup in India." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --font-display:'Rajdhani',system-ui,sans-serif;
+    --font-body:'Inter',system-ui,sans-serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+    --brand:#1746c9;
+    --brand-dark:#0d2a7a;
+    --accent:#00d4f5;
+    --canvas:#0a0d14;
+    --canvas-subtle:#0d111a;
+    --surface:#111725;
+    --ink:#f2f5fa;
+    --ink-secondary:#c3ccdb;
+    --ink-muted:#8b96a9;
+    --divider:rgba(255,255,255,0.09);
+    --divider-strong:rgba(255,255,255,0.2);
+    --radius:8px;
+    --radius-lg:16px;
+    --duration-base:220ms;
+    --gradient-brand:linear-gradient(100deg,#3f7bff 0%,#00d4f5 100%);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--canvas);color:var(--ink);
+    font-family:var(--font-body);font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  .container{width:100%;max-width:1180px;margin-inline:auto;padding-inline:1.5rem}
+  .section-py{padding-block:6rem}
+  .skip-to-content{
+    position:absolute;left:-9999px;top:0;background:var(--brand);color:#fff;
+    padding:.75rem 1.25rem;z-index:100;border-radius:0 0 var(--radius) 0;
+  }
+  .skip-to-content:focus{left:0}
+  .eyebrow{
+    display:inline-block;font-family:var(--font-mono);font-size:.6875rem;
+    text-transform:uppercase;letter-spacing:.12em;color:var(--accent);
+  }
+  /* header */
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,13,20,.85);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--divider);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding-block:1rem}
+  .brand-mark{
+    display:flex;align-items:center;gap:.6rem;text-decoration:none;
+    font-family:var(--font-display);font-weight:700;font-size:1.25rem;letter-spacing:-.01em;color:var(--ink);
+  }
+  .brand-dot{width:10px;height:10px;border-radius:3px;background:var(--gradient-brand);flex-shrink:0}
+  .nav-links{display:flex;align-items:center;gap:1.75rem;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+  .nav-links a{
+    font-family:var(--font-display);font-weight:600;font-size:.95rem;letter-spacing:.02em;
+    color:var(--ink-secondary);text-decoration:none;transition:color var(--duration-base) ease;
+  }
+  .nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--accent)}
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;
+    font-family:var(--font-display);font-weight:700;letter-spacing:.02em;
+    padding:.7rem 1.4rem;border-radius:var(--radius);border:1.5px solid transparent;
+    transition:transform var(--duration-base) ease,background-color var(--duration-base) ease,border-color var(--duration-base) ease;
+  }
+  .btn-gradient{background:var(--gradient-brand);color:#04101c}
+  .btn-gradient:hover{transform:translateY(-2px)}
+  .btn-ghost{border-color:var(--divider-strong);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .btn-primary{background:var(--brand);color:#fff}
+  .btn-primary:hover{background:var(--brand-dark)}
+  /* hero */
+  .faq-hero{position:relative;overflow:hidden;padding-block:5.5rem 4rem;border-bottom:1px solid var(--divider)}
+  .hero-blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0}
+  .faq-hero h1{
+    font-family:var(--font-display);font-weight:700;
+    font-size:clamp(2.5rem,5vw + .5rem,4.25rem);line-height:1.04;letter-spacing:-.02em;
+    margin:1.5rem 0 1.25rem;
+  }
+  .faq-hero h1 .grad{
+    background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .faq-hero p{max-width:620px;color:var(--ink-muted);font-size:1.0625rem;line-height:1.8;margin:0}
+  /* jump nav */
+  .jump{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2.5rem}
+  .tag{
+    display:inline-block;font-family:var(--font-mono);font-size:.75rem;
+    padding:.4rem .8rem;border:1px solid var(--divider-strong);border-radius:999px;
+    color:var(--ink-secondary);text-decoration:none;transition:border-color var(--duration-base) ease,color var(--duration-base) ease;
+  }
+  .tag:hover{border-color:var(--accent);color:var(--accent)}
+  /* faq blocks */
+  .faq-group{border-top:1px solid var(--divider)}
+  .faq-group:first-of-type{border-top:none}
+  .group-head{display:flex;align-items:center;gap:.75rem;margin-bottom:2.5rem}
+  .group-num{font-family:var(--font-mono);font-size:.6875rem;color:var(--accent);letter-spacing:.1em;text-transform:uppercase}
+  .group-rule{width:32px;height:1px;background:var(--accent);opacity:.4}
+  .group-title{
+    font-family:var(--font-display);font-size:clamp(1.6rem,2.4vw + .4rem,2.25rem);
+    font-weight:700;letter-spacing:-.01em;margin:0;
+  }
+  .qa{
+    background:var(--surface);border:1px solid var(--divider);border-radius:var(--radius-lg);
+    padding:2rem;margin-bottom:1.25rem;transition:border-color var(--duration-base) ease;
+  }
+  .qa:hover{border-color:var(--divider-strong)}
+  .qa h3{
+    font-family:var(--font-display);font-size:1.25rem;font-weight:700;
+    letter-spacing:-.005em;margin:0 0 .9rem;color:var(--ink);
+  }
+  .qa p{margin:0 0 1rem;color:var(--ink-muted);font-size:.9688rem;line-height:1.8}
+  .qa p:last-child{margin-bottom:0}
+  .qa ul{margin:0 0 1rem;padding-left:1.1rem;color:var(--ink-muted);font-size:.9688rem;line-height:1.8}
+  .qa li{margin-bottom:.4rem}
+  .qa strong{color:var(--ink-secondary);font-weight:600}
+  .qa a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(0,212,245,.35)}
+  .qa a:hover{border-bottom-color:var(--accent)}
+  .ph{
+    font-family:var(--font-mono);font-size:.85em;color:var(--accent);
+    background:rgba(0,212,245,.08);border:1px dashed rgba(0,212,245,.35);
+    padding:.1rem .4rem;border-radius:4px;white-space:nowrap;
+  }
+  /* contact strip */
+  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;margin-top:2.5rem}
+  .contact-item span.label{
+    display:block;font-family:var(--font-mono);font-size:.625rem;text-transform:uppercase;
+    letter-spacing:.1em;color:var(--ink-muted);margin-bottom:.5rem;
+  }
+  .contact-item .val,.contact-item a{
+    font-family:var(--font-mono);font-size:.9375rem;color:var(--ink);text-decoration:none;line-height:1.7;
+  }
+  .contact-item a:hover{color:var(--accent)}
+  .links-row{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}
+  .links-row a{
+    font-family:var(--font-display);font-weight:600;font-size:.9375rem;letter-spacing:.02em;
+    color:var(--ink-secondary);text-decoration:none;border:1px solid var(--divider-strong);
+    padding:.55rem 1.1rem;border-radius:var(--radius);transition:border-color var(--duration-base) ease,color var(--duration-base) ease;
+  }
+  .links-row a:hover{border-color:var(--accent);color:var(--accent)}
+  /* cta */
+  .cta{position:relative;overflow:hidden;background:var(--brand);padding-block:5.5rem;text-align:center}
+  .cta-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--brand-dark) 0%,var(--brand) 50%,rgba(0,212,245,.15) 100%);z-index:0}
+  .cta .container{position:relative;z-index:1}
+  .cta h2{
+    font-family:var(--font-display);font-weight:700;color:#fff;
+    font-size:clamp(1.9rem,3.6vw + .5rem,3rem);line-height:1.1;letter-spacing:-.015em;
+    max-width:640px;margin:1.25rem auto 1.25rem;
+  }
+  .cta p{color:rgba(255,255,255,.72);max-width:480px;margin:0 auto 2.5rem;line-height:1.7}
+  .cta .eyebrow{color:rgba(255,255,255,.6)}
+  .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  .cta-white{background:#fff;color:var(--brand);box-shadow:0 4px 20px rgba(0,0,0,.2)}
+  .cta-white:hover{background:#f0f0f0;transform:translateY(-2px)}
+  .cta-outline{border-color:rgba(255,255,255,.4);color:#fff}
+  .cta-outline:hover{border-color:rgba(255,255,255,.85);background:rgba(255,255,255,.08)}
+  /* footer */
+  footer{border-top:1px solid var(--divider);background:var(--canvas-subtle)}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;margin-bottom:4rem}
+  .footer-head{font-family:var(--font-mono);font-size:.6875rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-muted);margin-bottom:1.25rem}
+  .footer-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.75rem}
+  .footer-link{font-size:.9375rem;color:var(--ink-secondary);text-decoration:none}
+  .footer-link:hover{color:var(--accent)}
+  .footer-bottom{
+    border-top:1px solid var(--divider);padding-top:2rem;display:flex;
+    justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+  }
+  .footer-bottom span{font-family:var(--font-mono);font-size:.6875rem;color:var(--ink-muted)}
+  @media (max-width:768px){
+    .footer-grid{grid-template-columns:1fr;gap:2.5rem}
+    .section-py{padding-block:4rem}
+    .nav-inner{flex-direction:column;align-items:flex-start;gap:1rem}
+    .nav-links{gap:1.1rem}
+    .qa{padding:1.5rem}
+  }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-to-content">Skip to content</a>
+
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand-mark" href="/"><span class="brand-dot" aria-hidden="true"></span><span data-tibly-field="business-name">Kriva Tech</span></a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="/data">Data Collection</a></li>
+        <li><a href="/ai">AI &amp; Automation</a></li>
+        <li><a href="/software">Software Eng.</a></li>
+        <li><a href="/operations">IT &amp; Operations</a></li>
+        <li><a href="/staffing">Tech Staffing</a></li>
+        <li><a href="/faq" aria-current="page">FAQ</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <section class="faq-hero" aria-label="Frequently asked questions introduction">
+    <div class="hero-blob" style="width:640px;height:640px;background:var(--brand);opacity:.07;top:-30%;right:-8%"></div>
+    <div class="hero-blob" style="width:380px;height:380px;background:var(--accent);opacity:.05;bottom:-40%;left:-6%"></div>
+    <div class="container" style="position:relative;z-index:1">
+      <span class="eyebrow">Frequently Asked Questions</span>
+      <h1>Straight answers,<br><span class="grad">before the call.</span></h1>
+      <p>These are the questions buyers actually ask us, in the order they usually ask them. If yours is not here, write to us and we will answer it in one reply.</p>
+      <nav class="jump" aria-label="Jump to a section">
+        <a class="tag" href="#services">What we do</a>
+        <a class="tag" href="#where">Where we work</a>
+        <a class="tag" href="#software">Custom software</a>
+        <a class="tag" href="#engagement">Engagements &amp; pricing</a>
+        <a class="tag" href="#timelines">Timelines</a>
+        <a class="tag" href="#security">Data security</a>
+        <a class="tag" href="#teams">Dedicated teams &amp; GCC</a>
+        <a class="tag" href="#contact">Getting in touch</a>
+      </nav>
+    </div>
+  </section>
+
+  <section id="services" class="section-py faq-group" aria-labelledby="services-title" style="background:var(--canvas)">
+    <div class="container">
+      <div class="group-head">
+        <span class="group-num">01</span><span class="group-rule"></span>
+        <span class="group-num" style="color:var(--ink-muted)">Services</span>
+      </div>
+      <h2 class="group-title" id="services-title" style="margin-bottom:2.5rem">What Kriva actually does.</h2>
+
+      <div class="qa">
+        <h3>What does <span data-tibly-field="business-name">Kriva Tech</span> do?</h3>
+        <p>We run five divisions under one roof. Clients usually come in through one and expand into the others:</p>
+        <ul>
+          <li><strong>Data collection and annotation.</strong> Egocentric video, robotics training data, environment captures, field collection, labeling, and cleaning pipelines. Off-the-shelf datasets or a custom collection program built to your spec.</li>
+          <li><strong>AI and automation.</strong> Model evaluation support, workflow automation, internal AI tooling, and consulting on where automation pays off and where it does not.</li>
+          <li><strong>Software engineering.</strong> UI/UX design through web apps, mobile apps, enterprise systems, and API integrations.</li>
+          <li><strong>IT and operations.</strong> Cloud infrastructure, cost audits, monitoring, and day-to-day operational support.</li>
+          <li><strong>Tech staffing.</strong> Vetted engineers placed on your team, contract or full-time.</li>
+        </ul>
+        <p>The common thread is delivery at volume without letting quality slip. That is what "Quality in Quantity, Delivered" means for us.</p>
+      </div>
+
+      <div class="qa">
+        <h3>Do I have to buy more than one service?</h3>
+        <p>No. Plenty of clients only ever work with one division. A single dataset delivery, one cloud cost audit, or one engineer on a six-month contract are all normal starting points.</p>
+      </div>
+
+      <div class="qa">
+        <h3>What kind of companies do you usually work with?</h3>
+        <p>AI and robotics teams that need training data, product companies that need engineering capacity, and operations teams that need their cloud bill and infrastructure brought under control. Sizes range from funded startups to enterprise groups building out offshore capability.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="where" class="section-py faq-group" aria-labelledby="where-title" style="background:var(--canvas-subtle)">
+    <div class="container">
+      <div class="group-head">
+        <span class="group-num">02</span><span class="group-rule"></span>
+        <span class="group-num" style="color:var(--ink-muted)">Location &amp; Coverage</span>
+      </div>
+      <h2 class="group-title" id="where-title" style="margin-bottom:2.5rem">Where we are and who we serve.</h2>
+
+      <div class="qa">
+        <h3>Where is Kriva based?</h3>
+        <p>Two locations. Our delivery operation sits in Hyderabad, India, and our US presence is in Dallas, Texas. Client-facing work is coordinated from Dallas; the bulk of build and collection work runs out of Hyderabad.</p>
+        <p>Our registered address is <span data-tibly-field="address">1200 Main Street, Suite 400, Dallas, TX 75202</span>.</p>
+      </div>
+
+      <div class="qa">
+        <h3>Can you work with clients outside India and the US?</h3>
+        <p>Yes. We deliver worldwide. Data collection programs in particular are run across multiple geographies depending on what the dataset requires. Tell us the regions and conditions you need represented and we will tell you what is feasible.</p>
+      </div>
+
+      <div class="qa">
+        <h3>What time zones do you cover?</h3>
+        <p>The Hyderabad team keeps overlap hours with both US and European mornings. Our standard working hours are <span data-tibly-field="hours">Monday to Friday, 9:00 AM to 6:00 PM CT</span>, and we agree a fixed daily overlap window with each client at kickoff.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="software" class="section-py faq-group" aria-labelledby="software-title" style="background:var(--canvas)">
+    <div class="container">
+      <div class="group-head">
+        <span class="group-num">03</span><span class="group-rule"></span>
+        <span class="group-num" style="color:var(--ink-muted)">Custom Software</span>
+      </div>
+      <h2 class="group-title" id="software-title" style="margin-bottom:2.5rem">Building software with us.</h2>
+
+      <div class="qa">
+        <h3>Do you build custom software?</h3>
+        <p>Yes, and it is one of our largest divisions. We cover the full path: UI/UX design, web applications, mobile apps for iOS and Android, enterprise systems, and API integrations into whatever you already run.</p>
+      </div>
+
+      <div class="qa">
+        <h3>Who writes the code? Do you subcontract?</h3>
+        <p>Our own senior team writes it. We do not subcontract delivery to agencies or freelance marketplaces. The people on your kickoff call are the people shipping the work, and the same team owns the outcome through to handover.</p>
+      </div>
+
+      <div class="qa">
+        <h3>Can you take over an existing codebase?</h3>
+        <p>Often, yes. We start with a short technical review of the repository, infrastructure, and open issues, then give you an honest read on whether it is worth continuing or worth rebuilding a specific layer. We will say so if we think a rewrite is a bad idea.</p>
+      </div>
+
+      <div class="qa">
+        <h3>Who owns the code and the data at the end?</h3>
+        <p>You do. IP assignment is written into the agreement before work starts. Repositories, infrastructure accounts, and documentation are handed over in full at close of engagement.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="engagement" class="section-py faq-group" aria-labelledby="engagement-title" style="background:var(--canvas-subtle)">
+    <div class="container">
+      <div class="group-head">
+        <span class="group-num">04</span><span class="group-rule"></span>
+        <span class="group-num" style="color:var(--ink-muted)">Engagements &amp; Pricing</span>
+      </div>
+      <h2 class="group-title" id="engagement-title" style="margin-bottom:2.5rem">How work starts and what it costs.</h2>
+
+      <div class="qa">
+        <h3>How does an engagement start?</h3>
+        <p>It starts with a scoping call, usually 45 minutes. We go through what you are building, what already exists, your constraints, and your deadline. If it is a data project we also go through volumes, formats, and acceptance criteria.</p>
+        <p>After that call we send a written proposal with a fixed scope, a fixed price, a delivery schedule, and named people. No hourly guesswork, no open-ended retainer unless you specifically want one.</p>
+      </div>
+
+      <div class="qa">
+        <h3>What does a project typically cost?</h3>
+        <p>Typical project sizes fall in the range of <span class="ph">[PLACEHOLDER]</span>. Dedicated engineer engagements are billed monthly at <span class="ph">[PLACEHOLDER]</span> per engineer, and data collection is priced per unit collected or per annotated hour, starting around <span class="ph">[PLACEHOLDER]</span>.</p>
+        <p>Every number we quote is in the proposal in writing before you sign anything.</p>
+      </div>
+
+      <div class="qa">
+        <h3>Is the scoping call free?</h3>
+        <p>Yes. The call and the proposal that follows cost nothing. If a project needs a deeper technical audit before we can quote responsibly, we will tell you upfront and price that audit separately.</p>
+      </div>
+
+      <div class="qa">
+        <h3>How do you handle scope changes mid-project?</h3>
+        <p>Changes get written up as a short amendment with their own price and their own schedule impact, and you approve it before we start. Nothing gets added to an invoice you have not seen coming.</p>
+      </div>
+
+      <div class="qa">
+        <h3>What are your payment terms?</h3>
+        <p>Standard terms are <span class="ph">[PLACEHOLDER]</span> upfront with the balance tied to delivery milestones. Monthly engagements are invoiced at month end on <span class="ph">[PLACEHOLDER]</span> terms.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="timelines" class="section-py faq-group" aria-labelledby="timelines-title" style="background:var(--canvas)">
+    <div class="container">
+      <div class="group-head">
+        <span class="group-num">05</span><span class="group-rule"></span>
+        <span class="group-num" style="color:var(--ink-muted)">Timelines</span>
+      </div>
+      <h2 class="group-title" id="timelines-title" style="margin-bottom:2.5rem">How long things take.</h2>
+
+      <div class="qa">
+        <h3>What are typical project timelines?</h3>
+        <ul>
+          <li><strong>Custom software build:</strong> <span class="ph">[PLACEHOLDER]</span></li>
+          <li><strong>Data collection program:</strong> <span class="ph">[PLACEHOLDER]</span> from spec sign-off to first delivery batch</li>
+          <li><strong>Annotation on existing data:</strong> <span class="ph">[PLACEHOLDER]</span></li>
+          <li><strong>Cloud cost audit:</strong> <span class="ph">[PLACEHOLDER]</span></li>
+        </ul>
+        <p>Once we have your requirements the proposal carries dated milestones, so you are not working off a range.</p>
+      </div>
+
+      <div class="qa">
+        <h3>How quickly can you start?</h3>
+        <p>Bench availability changes month to month. Typical lead time from signed proposal to kickoff is <span class="ph">[PLACEHOLDER]</span>. If you have a hard deadline, say so on the scoping call and we will tell you honestly whether we can hold it.</p>
+      </div>
+
+      <div class="qa">
+        <h3>How do you report progress?</h3>
+        <p>Weekly written updates with what shipped, what is next, and anything blocking us. Plus a standing call at whatever cadence you prefer. For software work you get access to the board and the repository from day one.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="security" class="section-py faq-group" aria-labelledby="security-title" style="background:var(--canvas-subtle)">
+    <div class="container">
+      <div class="group-head">
+        <span class="group-num">06</span><span class="group-rule"></span>
+        <span class="group-num" style="color:var(--ink-muted)">Security &amp; Custody</span>
+      </div>
+      <h2 class="group-title" id="security-title" style="margin-bottom:2.5rem">How we handle your data.</h2>
+
+      <div class="qa">
+        <h3>How do you handle data security?</h3>
+        <p>Client data lives in access-controlled storage with named access only, and every account is provisioned on a least-privilege basis. Data is encrypted in transit and at rest. Annotation work happens on managed machines with device controls, not on personal laptops. Access is revoked the day a person rolls off the project.</p>
+        <p>Every person who touches client data signs an NDA and a data handling agreement before onboarding.</p>
+      </div>
+
+      <div class="qa">
+        <h3>What does chain of custody mean in practice?</h3>
+        <p>For collection work, every asset is logged from the moment it is captured: who captured it, where, on what device, when it was uploaded, who processed it, and who signed off on each QA pass. That log ships with the dataset, so you can trace any single file back to its origin.</p>
+        <p>Consent and release documentation for participants in video collection is collected and retained the same way and made available to you on request.</p>
+      </div>
+
+      <div class="qa">
+        <h3>Will you sign our NDA and DPA?</h3>
+        <p>Yes. We sign client NDAs and data processing agreements as a matter of course, usually before the scoping call goes into detail. If you have specific compliance requirements, send them over and we will confirm what we can meet.</p>
+      </div>
+
+      <div class="qa">
+        <h3>What happens to our data when the project ends?</h3>
+        <p>We delete working copies on a schedule agreed in the contract, typically within <span class="ph">[PLACEHOLDER]</span> of final delivery, and confirm deletion in writing. Anything you ask us to retain for a follow-on phase stays under the same controls.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="teams" class="section-py faq-group" aria-labelledby="teams-title" style="background:var(--canvas)">
+    <div class="container">
+      <div class="group-head">
+        <span class="group-num">07</span><span class="group-rule"></span>
+        <span class="group-num" style="color:var(--ink-muted)">Dedicated Teams &amp; GCC</span>
+      </div>
+      <h2 class="group-title" id="teams-title" style="margin-bottom:2.5rem">Building capacity in India.</h2>
+
+      <div class="qa">
+        <h3>Can you provide dedicated engineers?</h3>
+        <p>Yes. Dedicated engineers work only on your product, join your standups, and use your tools and your process. You interview every candidate before they are assigned. Minimum commitment is <span class="ph">[PLACEHOLDER]</span>, and roles run from backend, frontend and mobile through DevOps, QA and data engineering.</p>
+      </div>
+
+      <div class="qa">
+        <h3>Can you set up a GCC for us in India?</h3>
+        <p>Yes. We handle the full build-out of a global capability centre in Hyderabad: entity and compliance groundwork, office space, hiring, IT and security setup, payroll, and operational management. You get a working team without standing up an India operation yourself first.</p>
+        <p>Most GCC engagements start with a small pilot pod, then scale once the delivery rhythm is proven. Build-operate-transfer is available if you want the entity to end up fully under your control.</p>
+      </div>
+
+      <div class="qa">
+        <h3>What if an engineer is not the right fit?</h3>
+        <p>Tell us early. We replace within <span class="ph">[PLACEHOLDER]</span> at no additional cost and cover the handover so you do not lose context.</p>
+      </div>
+
+      <div class="qa">
+        <h3>How do you vet the people you place?</h3>
+        <p>Technical screen, a live problem in the candidate's primary stack, a reference check, and a background verification. Then your own interview. Anyone we would not put on our own project does not get sent to yours.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section-py faq-group" aria-labelledby="contact-title" style="background:var(--canvas-subtle)">
+    <div class="container">
+      <div class="group-head">
+        <span class="group-num">08</span><span class="group-rule"></span>
+        <span class="group-num" style="color:var(--ink-muted)">Getting In Touch</span>
+      </div>
+      <h2 class="group-title" id="contact-title" style="margin-bottom:2.5rem">Talk to us.</h2>
+
+      <div class="qa">
+        <h3>How do I get in touch?</h3>
+        <p>Use the <a href="/contact">contact page</a> and tell us what you are building, or call and email us directly. A short note with your goal, your rough timeline, and any hard constraints is enough for us to come back with something useful.</p>
+        <p>We reply to every enquiry within one business day.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-item">
+          <span class="label">Phone</span>
+          <a href="tel:+12145550188" data-tibly-field="phone">+1 (214) 555-0188</a>
+        </div>
+        <div class="contact-item">
+          <span class="label">Email</span>
+          <a href="mailto:hello@krivatech.com" data-tibly-field="email">hello@krivatech.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="label">Address</span>
+          <span class="val" data-tibly-field="address">1200 Main Street, Suite 400, Dallas, TX 75202</span>
+        </div>
+        <div class="contact-item">
+          <span class="label">Hours</span>
+          <span class="val" data-tibly-field="hours">Monday to Friday, 9:00 AM to 6:00 PM CT</span>
+        </div>
+      </div>
+
+      <div class="links-row" data-tibly-field="links">
+        <a href="/contact">Book a scoping call</a>
+        <a href="https://www.linkedin.com/company/krivatech">LinkedIn</a>
+        <a href="https://x.com/krivatech">X</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" aria-label="Start a project with Kriva">
+    <div class="cta-bg"></div>
+    <div class="container">
+      <span class="eyebrow">Still have a question?</span>
+      <h2>Ask it directly. You will get a real answer.</h2>
+      <p>One conversation is usually enough to work out whether <span data-tibly-field="business-name">Kriva Tech</span> is the right fit for what you are building.</p>
+      <div class="cta-btns">
+        <a href="/contact" class="btn cta-white">Book a Call</a>
+        <a href="/data" class="btn btn-ghost cta-outline">Explore Our Services →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container" style="padding-block:4rem 3rem">
+    <div class="footer-grid">
+      <div>
+        <a class="brand-mark" href="/"><span class="brand-dot" aria-hidden="true"></span><span data-tibly-field="business-name">Kriva Tech</span></a>
+        <p style="font-size:.9375rem;color:var(--ink-muted);line-height:1.7;margin-top:1.5rem;max-width:340px">
+          Quality in Quantity, Delivered. A multi-division technology and operations company building the systems that make AI possible.
+        </p>
+      </div>
+      <div>
+        <p class="footer-head">Divisions</p>
+        <ul class="footer-list">
+          <li><a class="footer-link" href="/data">Data Collection</a></li>
+          <li><a class="footer-link" href="/ai">AI &amp; Automation</a></li>
+          <li><a class="footer-link" href="/software">Software Eng.</a></li>
+          <li><a class="footer-link" href="/operations">IT &amp; Operations</a></li>
+          <li><a class="footer-link" href="/staffing">Tech Staffing</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-head">Company</p>
+        <ul class="footer-list">
+          <li><a class="footer-link" href="/faq">FAQ</a></li>
+          <li><a class="footer-link" href="/contact">Contact Us</a></li>
+          <li><a class="footer-link" href="tel:+12145550188"><span data-tibly-field="phone">+1 (214) 555-0188</span></a></li>
+          <li><a class="footer-link" href="mailto:hello@krivatech.com"><span data-tibly-field="email">hello@krivatech.com</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Kriva Technologies. All rights reserved.</span>
+      <span>krivatech.com</span>
+    </div>
+  </div>
+</footer>
+
+  <script async src="https://api.tibly.ai/widget/v1.js"></script>
+</body>
+</html>
